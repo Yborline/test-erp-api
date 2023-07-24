@@ -1,14 +1,14 @@
 const { Project } = require("../../models");
 const { ErrorHandler } = require("../../utils/errorHandler");
 
-const getClient = async (req, res, next) => {
+const getProject = async (req, res, next) => {
   try {
-    const clients = await Project.find({});
-    if (clients) {
+    const projects = await Project.find({});
+    if (projects) {
       res.json({
         status: "success",
         code: 200,
-        clients,
+        projects,
       });
     }
   } catch (error) {
@@ -16,4 +16,4 @@ const getClient = async (req, res, next) => {
   }
 };
 
-module.exports = getClient;
+module.exports = getProject;
