@@ -1,4 +1,4 @@
-const { Project } = require("../../models");
+const { Project, Client } = require("../../models");
 const { ErrorHandler } = require("../../utils/errorHandler");
 
 const getProject = async (req, res, next) => {
@@ -9,9 +9,11 @@ const getProject = async (req, res, next) => {
     const countProject = await Project.countDocuments({});
     let id = 1;
     if (countProject) {
-      id = countProject + 1;
-    }
+      const projectLast = await Project.find().sort({ id: -1 }).limit(1);
 
+      id = projectLast[0].id + 1;
+    }
+    console.log(id);
     if (find) {
       throw new ErrorHandler(409, "Taкий id_dep_client вже є");
     }
