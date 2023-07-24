@@ -17,11 +17,11 @@ const getProject = async (req, res, next) => {
     if (find) {
       throw new ErrorHandler(409, "Taкий id_dep_client вже є");
     }
-    const client = await Project.create({ ...req.body, id: id });
+    const project = await Project.create({ ...req.body, id: id });
     res.json({
       status: "success",
       code: 201,
-      client,
+      project,
     });
   } catch (error) {
     console.log(error);
