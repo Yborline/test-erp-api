@@ -3,7 +3,10 @@ const { ErrorHandler } = require("../../utils/errorHandler");
 
 const getProject = async (req, res, next) => {
   try {
-    const projects = await Project.find({});
+    let id;
+    let id_dep_client;
+    const projects = await Project.find({}).sort({ id_dep_client, id });
+
     if (projects) {
       res.json({
         status: "success",
