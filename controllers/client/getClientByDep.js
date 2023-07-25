@@ -3,7 +3,7 @@ const { ErrorHandler } = require("../../utils/errorHandler");
 
 const getClientByDep = async (req, res, next) => {
   try {
-    const { id_dep_client } = req.body;
+    const { id_dep_client } = req.params;
     const client = await Client.findOne({ id_dep_client });
     if (client) {
       res.json({
