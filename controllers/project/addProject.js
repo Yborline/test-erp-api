@@ -1,10 +1,10 @@
 const { Project, Client } = require("../../models");
 const { ErrorHandler } = require("../../utils/errorHandler");
 
-const getProject = async (req, res, next) => {
+const addProject = async (req, res, next) => {
   try {
-    const { name_client, id_dep_client } = req.body;
-    const find = await Project.findOne({ id_dep_client });
+    const { name_client, id_project } = req.body;
+    const find = await Project.findOne({ id_project });
 
     const countProject = await Project.countDocuments({});
     let id = 1;
@@ -29,4 +29,4 @@ const getProject = async (req, res, next) => {
   }
 };
 
-module.exports = getProject;
+module.exports = addProject;
