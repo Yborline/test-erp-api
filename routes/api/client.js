@@ -7,5 +7,6 @@ const validationMiddleware = validation(clientJoiSchema);
 
 router.get("/", ctrlWrapper(ctrl.getClient));
 router.post("/", validationMiddleware, ctrlWrapper(ctrl.addClient));
+router.get("/:id_dep_client", ctrlWrapper(ctrl.getClientByDep));
 
 module.exports = router;
