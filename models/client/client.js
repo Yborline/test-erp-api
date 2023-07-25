@@ -12,6 +12,7 @@ const clientSchema = Schema(
     id_dep_client: {
       type: String,
       required: [true, "Set department id for client"],
+      maxlength: 5,
     },
   },
   { versionKey: false, timestamps: true }

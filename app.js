@@ -5,7 +5,6 @@ const { clientRouter, projectRouter } = require("./routes/api");
 require("dotenv").config();
 
 const app = express();
-const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(cors());
 app.use(express.json());
