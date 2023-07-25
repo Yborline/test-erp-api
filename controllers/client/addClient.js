@@ -3,7 +3,7 @@ const { ErrorHandler } = require("../../utils/errorHandler");
 
 const addClient = async (req, res, next) => {
   try {
-    const { name_client, id_dep_client } = req.body;
+    const { id_dep_client } = req.body;
     const find = await Client.find({ id_dep_client });
 
     if (find) {
