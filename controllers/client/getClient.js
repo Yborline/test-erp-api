@@ -1,9 +1,10 @@
 const { Client } = require("../../models");
 const { ErrorHandler } = require("../../utils/errorHandler");
 
-const getClient = async (req, res, next) => {
+const getOneClient = async (req, res, next) => {
   try {
-    const clients = await Client.find({});
+    let id_dep_client;
+    const clients = await Client.find({}).sort(id_dep_client);
     if (clients) {
       res.json({
         status: "success",
@@ -16,4 +17,4 @@ const getClient = async (req, res, next) => {
   }
 };
 
-module.exports = getClient;
+module.exports = getOneClient;
